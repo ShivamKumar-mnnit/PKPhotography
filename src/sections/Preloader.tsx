@@ -13,7 +13,7 @@ const Preloader = () => {
 
   useEffect(() => {
     // Ensure all refs are defined before using them
-    if (!percentRef.current || !barRef.current || !innerRef.current || !textRef.current || !headingRef.current) {
+    if (!percentRef.current || !barRef.current || !innerRef.current || !textRef.current || !headingRef.current || !ref.current) {
       return;
     }
 
@@ -59,7 +59,11 @@ const Preloader = () => {
         } else {
           const newPercent = parseInt(currentPercent) + 1 + "%";
           percentRef.current.innerHTML = newPercent; // Update innerHTML
-          ref.current.style.width = newPercent; // Set width based on percent
+          
+          // Add null check for ref.current
+          if (ref.current) {
+            ref.current.style.width = newPercent; // Set width based on percent
+          }
         }
       }
     }, 10);
