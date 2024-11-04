@@ -4,24 +4,26 @@ import gsap from "gsap";
 import styles from "./Preloader.module.css";
 
 const Preloader = () => {
-  const ref = React.useRef();
-  const percentRef = React.useRef();
-  const barRef = React.useRef();
-  const innerRef = React.useRef();
-  const textRef = React.useRef();
-  const headingRef = React.useRef();
+  const ref = React.useRef<HTMLDivElement | null>(null);
+  const percentRef = React.useRef<HTMLDivElement | null>(null);
+  const barRef = React.useRef<HTMLDivElement | null>(null);
+  const innerRef = React.useRef<HTMLDivElement | null>(null);
+  const textRef = React.useRef<HTMLDivElement | null>(null);
+  const headingRef = React.useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // calling gsap properly to avoid illegal invocation error with the gsap.to() method
+    // Ensure all refs are defined before using them
+    if (!percentRef.current || !barRef.current || !innerRef.current || !textRef.current || !headingRef.current) {
+      return;
+    }
 
     const tl = gsap.timeline({ defaults: { duration: 1 } });
     tl.fromTo(
       percentRef.current,
-      { opacity: 1, zIndex: 1, duration: 2 },
+      { opacity: 1, zIndex: 1 },
       {
         opacity: 0,
         zIndex: -1,
-        duration: 2,
       }
     )
       .to(barRef.current, {
@@ -48,16 +50,15 @@ const Preloader = () => {
         },
       });
 
-    // a setInterval function that will run the frame function every 10 milliseconds
     const interval = setInterval(frame, 10);
     function frame() {
       if (percentRef.current.innerHTML === "100%") {
         clearInterval(interval);
       } else {
-        console.log(percentRef.current.innerHTML);
-        percentRef.current.innerHTML =
-          parseInt(percentRef.current.innerHTML) + 1 + "%";
-        ref.current.style.width = parseInt(percentRef.current.innerHTML) + "%";
+        percentRef.current.innerHTML = parseInt(percentRef.current.innerHTML) + 1 + "%";
+        if (ref.current) {
+          ref.current.style.width = percentRef.current.innerHTML; // Set width based on percent
+        }
       }
     }
 
@@ -77,7 +78,7 @@ const Preloader = () => {
         </div>
       </div>
       <div ref={headingRef} className={styles.heading}>
-        <h1 ref={textRef}>PKPhotgraphy</h1>
+        <h1 ref={textRef}>PKPhotography</h1>
       </div>
     </div>
   );
