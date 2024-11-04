@@ -1,9 +1,7 @@
 'use client';
-import React, { useEffect, useRef, useState } from "react";
-
+import React, { useEffect } from "react";
 import gsap from "gsap";
 import SplitText from "./Split3.min";
-
 import "./style.scss";
 
 export default function Herotop() {
@@ -12,12 +10,11 @@ export default function Herotop() {
       type: "lines",
       linesClass: "lineChildren",
     });
-    
-    const splitParent = new SplitText("#header-text", {
-      type: "lines",
-      linesClass: "lineParent",
-    });
 
+    // Hide lines initially
+    gsap.set(split.lines, { y: 50, opacity: 0 });
+
+    // Animate lines
     gsap.to(split.lines, {
       duration: 1,
       y: 0,
@@ -25,13 +22,17 @@ export default function Herotop() {
       stagger: 0.1,
       ease: "power2",
     });
+
+    // Cleanup function (optional)
+    return () => {
+      split.revert(); // Revert changes made by SplitText when component unmounts
+    };
   }, []);
 
   return (
     <section className="header-container" data-scroll-section>
       <h1 id="header-text">
-
-        
+        Welcome to PK Photography
       </h1>
     </section>
   );
