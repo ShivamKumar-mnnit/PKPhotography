@@ -3,7 +3,7 @@ import { Header1 } from "@/sections/Header1";
 import { Hero } from "@/sections/Hero";
 import { LogoTicker } from "@/sections/LogoTicker";
 // import { ProductShowcase } from "@/sections/ProductShowcase";
-import { Parallax } from "@/sections/Parallax";
+
 // import { Testimonials } from "@/sections/Testimonials";
 import { CallToAction } from "@/sections/CallToAction";
 import Preloader from "@/sections/Preloader";
@@ -37,7 +37,6 @@ export default function Home() {
   {/* <ProductShowcase/> */}
   <TextParallaxContentExample/>
   <Featured/>
-  <Parallax/>
   
   {/* <Testimonials/> */}
   <CallToAction/>
