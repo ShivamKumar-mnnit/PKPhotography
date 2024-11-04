@@ -17,7 +17,7 @@ const testimonials = [
     username: "@jamietechguru00",
   },
   {
-    text: "Our team's productivity has skyrocketed since we started using this tool. ",
+    text: "Our team&apos;s productivity has skyrocketed since we started using this tool.",
     imageSrc: avatar2.src,
     name: "Josh Smith",
     username: "@jjsmith",
@@ -66,9 +66,9 @@ const testimonials = [
   },
 ];
 
-const firstColumn = testimonials.slice(0,3);
-const secondColumn = testimonials.slice(3,6);
-const thirdColumn = testimonials.slice(6,9);
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
 
 export const Testimonials = () => {
   return (
