@@ -6,7 +6,7 @@ import noodleImage from '@/assets/noodle.png';
 import Image from "next/image";
 import Typewriter from 'typewriter-effect';
 import cameraImage from "@/assets/camera.webp";
-import Herotop from "@/components/Herotop/Herotop";
+// import Herotop from "@/components/Herotop/Herotop";
 import { DragCards } from "@/components/Drag/Drag";
 import BubbleText from '@/components/BubbleText/BubbleText';
 import Rotating from "@/components/RotatingText/Rotating";
@@ -16,7 +16,7 @@ export const Hero = () => {
     <section className="pt-8 pb-20 mt-6 md:pt-5 md:pb-10 bg-white overflow-x-clip">
       <div className="container mx-auto">
       <h1 className="text-7xl md:text-9xl font-extrabold flex justify-center text-center tracking-tight text-black leading-[1.2] md:leading-[1.1] scale-y-125">
-  <Herotop/>
+  {/* <Herotop/> */}
 </h1>
 
         <div className="md:flex items-center mt-10">
