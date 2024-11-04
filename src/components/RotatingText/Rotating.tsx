@@ -3,7 +3,7 @@ import './rotating.css';
 const Rotating = () => {
   return (
     
-        <div class="inner-headings">
+        <div className="inner-headings">
           <span>
             Photography <br />
             Videography <br />

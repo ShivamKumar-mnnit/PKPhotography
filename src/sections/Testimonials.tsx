@@ -73,63 +73,88 @@ const thirdColumn = testimonials.slice(6,9);
 export const Testimonials = () => {
   return (
     <section className="bg-white pt-5">
-      <div className="container p-0 ">
+      <div className="container p-0">
         <div className="section-heading">
-        <div className="flex justify-center">
-        <div className="tag">Testimonials</div>
-        </div>
-        <h2 className="section-title">What our users say</h2>
-        <p className='section-description mt-5'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat saepe nostrum corrupti iure labore impedit rerum voluptas inventore asperiores, ipsa aut. Iusto tenetur esse quae harum fugit modi dolores nobis?</p>
+          <div className="flex justify-center">
+            <div className="tag">Testimonials</div>
+          </div>
+          <h2 className="section-title">What our users say</h2>
+          <p className="section-description mt-5">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+            saepe nostrum corrupti iure labore impedit rerum voluptas inventore
+            asperiores, ipsa aut. Iusto tenetur esse quae harum fugit modi
+            dolores nobis?
+          </p>
         </div>
         <div className="flex justify-center gap-6">
-        <div className="flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
-          {firstColumn.map(({text, imageSrc, name, username}) =>(
-              <div className="card">
-                  <div>{text}</div>
-                  <div className="flex items-center gap-2 mt-5">
-                    <Image src={imageSrc} alt={name} width={40} height={40} className="h-10 w-10 rounded-full" />
-                    <div className="flex flex-col">
-                      <div className="font-medium tracking-tight leading-5">{name}</div>
-                      <div className="leading-5 tracking-tight">{username}</div>
+          <div className="flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+            {firstColumn.map(({ text, imageSrc, name, username }, index) => (
+              <div className="card" key={`firstColumn-${index}`}>
+                <div>{text}</div>
+                <div className="flex items-center gap-2 mt-5">
+                  <Image
+                    src={imageSrc}
+                    alt={name}
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 rounded-full"
+                  />
+                  <div className="flex flex-col">
+                    <div className="font-medium tracking-tight leading-5">
+                      {name}
                     </div>
+                    <div className="leading-5 tracking-tight">{username}</div>
                   </div>
+                </div>
               </div>
-          ))}
-        </div>
-        
-        <div className="flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] hidden md:flex">
-          {secondColumn.map(({text, imageSrc, name, username}) =>(
-              <div className="card">
-                  <div>{text}</div>
-                  <div className="flex items-center gap-2 mt-5">
-                    <Image src={imageSrc} alt={name} width={40} height={40} className="h-10 w-10 rounded-full" />
-                    <div className="flex flex-col">
-                      <div className="font-medium tracking-tight leading-5">{name}</div>
-                      <div className="leading-5 tracking-tight">{username}</div>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] hidden md:flex">
+            {secondColumn.map(({ text, imageSrc, name, username }, index) => (
+              <div className="card" key={`secondColumn-${index}`}>
+                <div>{text}</div>
+                <div className="flex items-center gap-2 mt-5">
+                  <Image
+                    src={imageSrc}
+                    alt={name}
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 rounded-full"
+                  />
+                  <div className="flex flex-col">
+                    <div className="font-medium tracking-tight leading-5">
+                      {name}
                     </div>
+                    <div className="leading-5 tracking-tight">{username}</div>
                   </div>
+                </div>
               </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        
-        <div className="flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] hidden lg:flex">
-          {thirdColumn.map(({text, imageSrc, name, username}) =>(
-              <div className="card">
-                  <div>{text}</div>
-                  <div className="flex items-center gap-2 mt-5">
-                    <Image src={imageSrc} alt={name} width={40} height={40} className="h-10 w-10 rounded-full" />
-                    <div className="flex flex-col">
-                      <div className="font-medium tracking-tight leading-5">{name}</div>
-                      <div className="leading-5 tracking-tight">{username}</div>
+          <div className="flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] hidden lg:flex">
+            {thirdColumn.map(({ text, imageSrc, name, username }, index) => (
+              <div className="card" key={`thirdColumn-${index}`}>
+                <div>{text}</div>
+                <div className="flex items-center gap-2 mt-5">
+                  <Image
+                    src={imageSrc}
+                    alt={name}
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 rounded-full"
+                  />
+                  <div className="flex flex-col">
+                    <div className="font-medium tracking-tight leading-5">
+                      {name}
                     </div>
+                    <div className="leading-5 tracking-tight">{username}</div>
                   </div>
+                </div>
               </div>
-          ))}
-        </div>
-
-
-
+            ))}
+          </div>
         </div>
       </div>
     </section>
