@@ -50,17 +50,19 @@ const Preloader = () => {
         },
       });
 
-    const interval = setInterval(frame, 10);
-    function frame() {
-      if (percentRef.current.innerHTML === "100%") {
-        clearInterval(interval);
-      } else {
-        percentRef.current.innerHTML = parseInt(percentRef.current.innerHTML) + 1 + "%";
-        if (ref.current) {
-          ref.current.style.width = percentRef.current.innerHTML; // Set width based on percent
+    const interval = setInterval(() => {
+      // Safe access of percentRef.current
+      if (percentRef.current) {
+        const currentPercent = percentRef.current.innerHTML;
+        if (currentPercent === "100%") {
+          clearInterval(interval);
+        } else {
+          const newPercent = parseInt(currentPercent) + 1 + "%";
+          percentRef.current.innerHTML = newPercent; // Update innerHTML
+          ref.current.style.width = newPercent; // Set width based on percent
         }
       }
-    }
+    }, 10);
 
     return () => {
       clearInterval(interval);
