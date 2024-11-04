@@ -83,7 +83,13 @@ export const Parallax = () => {
     );
 }
 
-const Column = ({ images, y }) => {
+// Define the type for the Column props
+interface ColumnProps {
+    images: string[];  // Array of strings for image URLs
+    y: any;            // Replace 'any' with a more specific type if you know what it is
+}
+
+const Column: React.FC<ColumnProps> = ({ images, y }) => {
     return (
         <motion.div
             className={styles.column}
