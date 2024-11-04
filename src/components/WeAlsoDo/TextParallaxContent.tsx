@@ -3,6 +3,23 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 
+// Define Prop Types
+interface TextParallaxContentProps {
+  imgUrl: string;
+  subheading?: string;
+  heading?: string;
+  children?: React.ReactNode;
+}
+
+interface StickyImageProps {
+  imgUrl: string;
+}
+
+interface OverlayCopyProps {
+  subheading?: string;
+  heading?: string;
+}
+
 export const TextParallaxContentExample = () => {
   return (
     <div className="bg-white">
@@ -33,7 +50,7 @@ export const TextParallaxContentExample = () => {
 
 const IMG_PADDING = 12;
 
-const TextParallaxContent = ({ imgUrl, subheading, heading, children }) => {
+const TextParallaxContent: React.FC<TextParallaxContentProps> = ({ imgUrl, subheading, heading, children }) => {
   return (
     <div
       style={{
@@ -50,7 +67,7 @@ const TextParallaxContent = ({ imgUrl, subheading, heading, children }) => {
   );
 };
 
-const StickyImage = ({ imgUrl }) => {
+const StickyImage: React.FC<StickyImageProps> = ({ imgUrl }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -83,7 +100,7 @@ const StickyImage = ({ imgUrl }) => {
   );
 };
 
-const OverlayCopy = ({ subheading, heading }) => {
+const OverlayCopy: React.FC<OverlayCopyProps> = ({ subheading, heading }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
