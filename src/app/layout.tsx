@@ -6,8 +6,14 @@ import clsx from "clsx";
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "PKPhotgraphy",
-  description: "Template created by Frontend Tribe",
+  title: {
+    default: "PK Photography - Best photography and videography service in mumbai",
+    template: "%s - Best photography and videography service in mumbai"
+  },
+  description: "We offer Portrait, Event, Commercial, lifestyle, Corporate Headshots, Real Estate shoots and Wedding and Events Photography.",
+  twitter:{
+    card: "summary_large_image"
+  }
 };
 
 export default function RootLayout({
