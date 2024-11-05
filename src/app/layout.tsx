@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "We offer Portrait, Event, Commercial, lifestyle, Corporate Headshots, Real Estate shoots and Wedding and Events Photography.",
   twitter:{
     card: "summary_large_image"
-  }
+  },
 };
 
 export default function RootLayout({
