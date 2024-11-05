@@ -15,6 +15,9 @@ import { TextParallaxContentExample } from "@/components/WeAlsoDo/TextParallaxCo
 import Featured from "@/components/Featured/Featured";
 import {Footer} from "@/sections/Footer";
 
+
+
+
 export default function Home() {
   
   const [showPreloader, setShowPreloader] = useState(true);
