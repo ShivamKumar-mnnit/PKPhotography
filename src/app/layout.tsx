@@ -24,8 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="relative">
+      <meta name="google-site-verification" content="xkkbCA30-55oudh-aQAwydfWkzUga0omPDIZ6lN9RB4" />
       <body className={clsx(dmSans.className, "antialiased ")}>
-        <Image src="#" alt='#' />
+       
         <h2></h2>
         <h3></h3>
         {children}
