@@ -19,7 +19,7 @@ export const Header1 = () => {
         <div className="container px-0">
           <div className="flex items-center justify-between">
             <Image src={PKLogo} alt="Saas Logo" height={120} width={120} />
-            <MenuIcon className="h-5 w-5 md:hidden" />
+            {/* <MenuIcon className="h-5 w-5 md:hidden" /> */}
             <nav className="hidden md:flex gap-6 text-black/70 items-center">
               <a href="#">Home</a>
               <a href="#">Services</a>

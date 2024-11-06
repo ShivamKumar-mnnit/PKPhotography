@@ -1299,6 +1299,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/montserrat@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "@fontsource/montserrat@npm:5.1.0"
+  checksum: d1b8d861e05198a65551fce4d8c32b02901e2ffd0b31d8eaaa9a496e560a673bd8ae530a9a252b70b694745477601ee87b696216ca3f8b68c59d020b58c37daf
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.13.0":
   version: 0.13.0
   resolution: "@humanwhocodes/config-array@npm:0.13.0"
@@ -4320,6 +4327,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "light-saas-landing-page@workspace:."
   dependencies:
+    "@fontsource/montserrat": ^5.1.0
     "@studio-freight/lenis": ^1.0.42
     "@svgr/webpack": ^8.1.0
     "@types/node": ^20

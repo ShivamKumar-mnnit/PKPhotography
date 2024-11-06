@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/montserrat": "^5.1.0",
     "@studio-freight/lenis": "^1.0.42",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",

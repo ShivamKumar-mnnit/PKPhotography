@@ -28,6 +28,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@fontsource/montserrat", "npm:5.1.0"],\
             ["@studio-freight/lenis", "npm:1.0.42"],\
             ["@svgr/webpack", "npm:8.1.0"],\
             ["@types/node", "npm:20.17.2"],\
@@ -2315,6 +2316,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@eslint-js-npm-8.57.1-dec269f278-2afb77454c.zip/node_modules/@eslint/js/",\
           "packageDependencies": [\
             ["@eslint/js", "npm:8.57.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@fontsource/montserrat", [\
+        ["npm:5.1.0", {\
+          "packageLocation": "./.yarn/cache/@fontsource-montserrat-npm-5.1.0-6f3ccbefa5-d1b8d861e0.zip/node_modules/@fontsource/montserrat/",\
+          "packageDependencies": [\
+            ["@fontsource/montserrat", "npm:5.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6060,6 +6070,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["light-saas-landing-page", "workspace:."],\
+            ["@fontsource/montserrat", "npm:5.1.0"],\
             ["@studio-freight/lenis", "npm:1.0.42"],\
             ["@svgr/webpack", "npm:8.1.0"],\
             ["@types/node", "npm:20.17.2"],\

@@ -124,8 +124,8 @@ Passion and Precision
 
 
                     <div className="mb-4 md:mb-0">
-                        <h2 className="text-[22px] font-semibold text-blue-800 py-2 uppercase">Contact</h2>
-                        <p className="text-[16px] my-4">Email: prabhakar@photography.com</p>
+                        <h2 className="text-[22px] font-semibold text-blue-800 py-2 uppercase text-center">Contact</h2>
+                        <p className="text-[16px] my-4 ">Email:prabhakar@photography.com</p>
                         <p className="text-[16px] my-4">Phone: +91 8888766739 </p>
                         <div className="flex space-x-4">
                             <a

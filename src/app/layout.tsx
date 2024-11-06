@@ -8,7 +8,7 @@ const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "PK Photography - Best photography and videography service in mumbai",
+    default: "PK Photography-Best in photography and videography.",
     template: "%s - Best photography and videography service in mumbai"
   },
   description: "We offer Portrait, Event, Commercial, lifestyle, Corporate Headshots, Real Estate shoots and Wedding and Events Photography.",
@@ -27,9 +27,13 @@ export default function RootLayout({
       <meta name="google-site-verification" content="xkkbCA30-55oudh-aQAwydfWkzUga0omPDIZ6lN9RB4" />
       <body className={clsx(dmSans.className, "antialiased ")}>
        
+        
+        {children}
         <h2></h2>
         <h3></h3>
-        {children}
+        <h4></h4>
+        <h5></h5>
+        <h6></h6>
       </body>
     </html>
   );
