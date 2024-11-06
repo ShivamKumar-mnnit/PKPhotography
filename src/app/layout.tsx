@@ -25,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="relative">
       <body className={clsx(dmSans.className, "antialiased ")}>
-        <Image />
+        <Image src="#" alt='#' />
+        <h2></h2>
+        <h3></h3>
         {children}
       </body>
     </html>
