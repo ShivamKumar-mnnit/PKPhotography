@@ -16,7 +16,8 @@ const SHUFFLE_TIME = 50;
 const CHARS = "!@#$%^&*():{};|,.<>/?";
 
 const EncryptButton = () => {
-  const intervalRef = useRef(null);
+  // Update the type of intervalRef to handle the return type of setInterval
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [text, setText] = useState(TARGET_TEXT);
 
   const scramble = () => {
@@ -45,7 +46,9 @@ const EncryptButton = () => {
   };
 
   const stopScramble = () => {
-    clearInterval(intervalRef.current || undefined);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
     setText(TARGET_TEXT);
   };
 
