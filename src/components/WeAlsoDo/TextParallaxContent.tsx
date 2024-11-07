@@ -133,12 +133,12 @@ const ExampleContent = () => (
       My Style
     </h2>
     <div className="col-span-1 md:col-span-8">
-      <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
-      At PK Photography, Mumbai's premier studio, we blend photojournalism's raw authenticity with fine-art elegance. Our unique style, infused with fashion and creative lighting, produces stunning, standout images. Inspired by the interplay of light and color, we utilize techniques from black & white processing to vintage photography. Our work uniquely captures the personalities of those we photograph. 
-      </p>
-      <p className="mb-8 text-xl text-neutral-600 md:text-2xl">
-      Discover why PK Photography is Mumbai's top choice for professional photography & videography.
-      </p>
+    <p className="mb-2 text-center text-xl md:mb-4 md:text-3xl">
+  At PK Photography, Mumbai&apos;s premier studio, we blend photojournalism&apos;s raw authenticity with fine-art elegance.
+</p>
+<p className="mb-4 text-xl text-neutral-600 md:text-2xl">
+  Our unique style, infused with fashion and creative lighting, produces stunning, standout images.
+</p>
       <button className="w-full rounded bg-neutral-900 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
         Learn more <FiArrowUpRight className="inline" />
       </button>
@@ -151,9 +151,9 @@ const ExampleContent1 = () => (
       Mission
     </h2>
     <div className="col-span-1 md:col-span-8">
-      <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
-      Imagine a world without photography—devoid of the vibrant life that light and color bring. At PK Photography, Mumbai's leading studio, we understand the power of these elements to ignite creativity and passion. Our work, inspired by the interplay of light and color, employs techniques from black & white processing to vintage styles and creative angles. We specialize in capturing the unique personalities of our subjects, whether in corporate headshots, portfolios, portraits, or editorial shots. Experience the blend of professionalism and artistic flair that makes PK Photography the top choice in Mumbai.
-      </p>
+    <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
+  Imagine a world without photography—devoid of the vibrant life that light and color bring.
+</p>
       <p className="mb-8 text-xl text-neutral-600 md:text-2xl"> Experience the blend of professionalism and artistic flair that makes PK Photography the top choice in Mumbai.
       </p>
       <button className="w-full rounded bg-neutral-900 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
@@ -168,11 +168,12 @@ const ExampleContent2 = () => (
       Vision
     </h2>
     <div className="col-span-1 md:col-span-8">
-      <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
-      At PK Photography, Mumbai's premier studio, we believe every photograph tells a unique story. Inspired by the beauty of light and color, we use techniques from black & white processing, vintage photography, and creative perspectives to craft our images. Capturing the true personality of our subjects is our top priority. Our style blends photojournalism with fine-art photography, enhanced by fashion and creative lighting.
-      </p>
-      <p className="mb-8 text-xl text-neutral-600 md:text-2xl"> Experience the distinctive artistry of PK Photography and see why we're Mumbai's top choice for exceptional photography & videography. 
-      </p>
+    <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
+  At PK Photography, Mumbai&apos;s leading studio, we understand the power of these elements to ignite creativity and passion.
+</p>
+<p className="mb-8 text-xl text-neutral-600 md:text-2xl">
+  Experience the blend of professionalism and artistic flair that makes PK Photography the top choice in Mumbai.
+</p>
       <button className="w-full rounded bg-neutral-900 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
         Learn more <FiArrowUpRight className="inline" />
       </button>
