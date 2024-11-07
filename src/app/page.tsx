@@ -14,6 +14,8 @@ import Service from "@/components/services/Service";
 import { TextParallaxContentExample } from "@/components/WeAlsoDo/TextParallaxContent";
 import Featured from "@/components/Featured/Featured";
 
+import {Footer} from "@/sections/Footer";
+
 
 
 
@@ -43,7 +45,7 @@ export default function Home() {
   
   {/* <Testimonials/> */}
   <CallToAction/>
-  
+  <Footer/>
   </>
 }
   
