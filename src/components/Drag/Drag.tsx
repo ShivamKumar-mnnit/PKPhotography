@@ -2,6 +2,7 @@
 import React, { useRef, useState, RefObject } from "react"; // Import RefObject
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
+import Helloimage from "@/assets/helloimg.avif"; // Import Helloimage
 
 // Define the prop types for the Card component
 interface CardProps {
@@ -16,7 +17,10 @@ interface CardProps {
 
 export const DragCards = () => {
   return (
-    <section className="relative grid min-h-screen w-full place-content-center overflow-hidden bg-white">
+    <section
+      className="relative grid min-h-screen w-full place-content-center overflow-hidden bg-cover bg-center rounded-3xl"
+      style={{ backgroundImage: `url("https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg")` }} // Set Helloimage as the background
+    >
       <h2 className="relative z-0 text-[20vw] font-black text-neutral-800 md:text-[120px]">
         PK<span className="text-indigo-500">Photography</span>
       </h2>

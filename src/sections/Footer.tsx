@@ -2,7 +2,7 @@
 import logo from '@/assets/logo.webp'
 import Image from 'next/image';
 import { FaGithub, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-
+import Link from 'next/link';
 
 export const Footer = () => {
   const Year = new Date().getFullYear();
@@ -22,140 +22,98 @@ export const Footer = () => {
                 <div className="grid lg:grid-cols-5 gap-5 sm:grid-cols-1 p-20 bg-black text-white">
                     <div className="flex flex-col gap-5">
                         <h2 className="text-3xl text-blue-800 ">PK Photography</h2>
-                        <p>
-                        Capturing Life’s
-Moments with
-Passion and Precision
-                        </p>
+                        <p>Capturing Life’s Moments with Passion and Precision</p>
                     </div>
 
                     <div>
                         <li className="text-[22px] list-none font-semibold text-blue-800 py-2 uppercase text-center">
                             Services
                         </li>
-                        <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Headshots
+                        <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="https://pkphotography.in/corporate-headshots/" target="_blank" rel="noopener noreferrer">Headshots</a>
                         </li>
-                        <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Portrait
-                             
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="https://pkphotography.in/portrait-gallery/" target="_blank" rel="noopener noreferrer">Portrait</a>
                         </li>
-                        <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Wedding & Events
-                             
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="https://pkphotography.in/gallery/" target="_blank" rel="noopener noreferrer">Wedding & Events</a>
                         </li>
-                        <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Portfolio
-                             
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="https://pkphotography.in/portfolio-gallery/" target="_blank" rel="noopener noreferrer">Portfolio</a>
                         </li>
-                        <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Interior 
-                             
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="https://pkphotography.in/interior-design/" target="_blank" rel="noopener noreferrer">Interior</a>
                         </li>
-                        <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Products
-                        </li>
-                        
                     </div>
 
                     <div>
                         <li className="text-[22px] list-none font-semibold text-blue-800 py-2 uppercase text-center">
-                            Videography</li>
-                        
-                            <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Wedding & Events
-                             
+                            Videography
                         </li>
-                            <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Live Streaming
-                             
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="https://pkphotography.in/wedding/" target="_blank" rel="noopener noreferrer">Wedding & Events</a>
                         </li>
-                            <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Corporate Ads
-                             
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="#" target="_blank" rel="noopener noreferrer">Live Streaming</a>
                         </li>
-                            <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Products Ads
-                             
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="#" target="_blank" rel="noopener noreferrer">Corporate Ads</a>
                         </li>
-                            <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Influencer Videos 
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="#" target="_blank" rel="noopener noreferrer">Product Ads</a>
                         </li>
-
-
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="#" target="_blank" rel="noopener noreferrer">Influencer Videos</a>
+                        </li>
                     </div>
 
                     <div>
                         <li className="text-[22px] list-none font-semibold text-blue-800 py-2 uppercase text-center">
-                            Useful Links</li>
-                        
-                            <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Sign-Up
-                             
-                             
+                            Useful Links
                         </li>
-                            <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Careers
-                             
-                             
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="/sign-up">Sign-Up</a>
                         </li>
-                            <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">FAQ’s
-                             
-                             
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="https://pkphotography.in/career/" target="_blank" rel="noopener noreferrer">Careers</a>
                         </li>
-                            <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Pricing
-                             
-                             
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="https://pkphotography.in/faqs/" target="_blank" rel="noopener noreferrer">FAQs</a>
                         </li>
-                            <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Booking 
-                              
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="#" target="_blank" rel="noopener noreferrer">Pricing</a>
                         </li>
-                            <li className="my-4 list-none  hover:text-pink-500 transform hover:scale-105
-                             transition-all duration-150 ease-in-out text-center cursor-pointer">Privacy Policy 
-                              
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="https://pkphotography.in/book-session/" target="_blank" rel="noopener noreferrer">Booking</a>
                         </li>
-
-
+                        <li className="my-4 list-none hover:text-pink-500 transform hover:scale-105 transition-all duration-150 ease-in-out text-center cursor-pointer">
+                            <a href="https://pkphotography.in/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                        </li>
                     </div>
-                    
-
 
                     <div className="mb-4 md:mb-0">
                         <h2 className="text-[22px] font-semibold text-blue-800 py-2 uppercase text-center">Contact</h2>
-                        <p className="text-[16px] my-4 ">Email:prabhakar@photography.com</p>
-                        <p className="text-[16px] my-4">Phone: +91 8888766739 </p>
+                        <p className="text-[16px] my-4">Email: prabhakar@photography.com</p>
+                        <p className="text-[16px] my-4">Phone: +91 8888766739</p>
                         <div className="flex space-x-4">
-                            <a
-                                className="text-white hover:text-pink-500 transform hover:scale-150 
-                            transition-all duration-150 ease-in-out" href="">
+                            <a href="https://www.facebook.com/pkfashionphotography" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-500 transform hover:scale-150 transition-all duration-150 ease-in-out">
                                 <FaGithub />
                             </a>
-                            <a
-                                className="text-white hover:text-pink-500 transform hover:scale-150
-                             transition-all duration-150 ease-in-out" href="">
-                                <FaLinkedinIn />
+                            <a href="https://www.instagram.com/itspkphotography.in/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-500 transform hover:scale-150 transition-all duration-150 ease-in-out">
+                               <FaInstagram />
                             </a>
-                            <a
-                                className="text-white hover:text-pink-500 transform hover:scale-150
-                             transition-all duration-150 ease-in-out" href="">
+                            <a href="https://x.com/pkphotographym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-500 transform hover:scale-150 transition-all duration-150 ease-in-out">
                                 <FaTwitter />
                             </a>
-                            <a
-                                className="text-white hover:text-pink-500 transform hover:scale-150
-                             transition-all duration-150 ease-in-out" href="">
-                                <FaInstagram />
+                            <a href="https://www.linkedin.com/company/pkphotography/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-500 transform hover:scale-150 transition-all duration-150 ease-in-out">
+                            <FaLinkedinIn />
                             </a>
                         </div>
                     </div>
                 </div>
 
-                
                 <h6 className="text-center text-white">Copyright &copy; {Year} PKPhotography. All rights reserved.</h6>
             </div>
         </footer>
-       
   );
 };

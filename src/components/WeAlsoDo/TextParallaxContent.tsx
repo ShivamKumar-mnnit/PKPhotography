@@ -25,8 +25,8 @@ export const TextParallaxContentExample = () => {
     <div className="bg-white">
       <TextParallaxContent
         imgUrl="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        subheading="Collaborate"
-        heading="Built for all of us."
+        subheading="About Us"
+        heading="My Style"
       >
         <ExampleContent />
       </TextParallaxContent>
@@ -35,14 +35,14 @@ export const TextParallaxContentExample = () => {
         subheading="Quality"
         heading="Never compromise."
       >
-        <ExampleContent />
+        <ExampleContent1 />
       </TextParallaxContent>
       <TextParallaxContent
         imgUrl="https://images.unsplash.com/photo-1504610926078-a1611febcad3?q=80&w=2416&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         subheading="Modern"
         heading="Dress for the best."
       >
-        <ExampleContent />
+        <ExampleContent2 />
       </TextParallaxContent>
     </div>
   );
@@ -130,18 +130,48 @@ const OverlayCopy: React.FC<OverlayCopyProps> = ({ subheading, heading }) => {
 const ExampleContent = () => (
   <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
     <h2 className="col-span-1 text-3xl font-bold md:col-span-4">
-      Additional content explaining the Photography
+      My Style
     </h2>
     <div className="col-span-1 md:col-span-8">
       <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,
-        blanditiis soluta eius quam modi aliquam quaerat odit deleniti minima
-        maiores voluptate est ut saepe accusantium maxime doloremque nulla
-        consectetur possimus.
+      At PK Photography, Mumbai's premier studio, we blend photojournalism's raw authenticity with fine-art elegance. Our unique style, infused with fashion and creative lighting, produces stunning, standout images. Inspired by the interplay of light and color, we utilize techniques from black & white processing to vintage photography. Our work uniquely captures the personalities of those we photograph. 
       </p>
       <p className="mb-8 text-xl text-neutral-600 md:text-2xl">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        reiciendis blanditiis aliquam aut fugit sint.
+      Discover why PK Photography is Mumbai's top choice for professional photography & videography.
+      </p>
+      <button className="w-full rounded bg-neutral-900 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
+        Learn more <FiArrowUpRight className="inline" />
+      </button>
+    </div>
+  </div>
+);
+const ExampleContent1 = () => (
+  <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
+    <h2 className="col-span-1 text-3xl font-bold md:col-span-4">
+      Mission
+    </h2>
+    <div className="col-span-1 md:col-span-8">
+      <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
+      Imagine a world without photography—devoid of the vibrant life that light and color bring. At PK Photography, Mumbai's leading studio, we understand the power of these elements to ignite creativity and passion. Our work, inspired by the interplay of light and color, employs techniques from black & white processing to vintage styles and creative angles. We specialize in capturing the unique personalities of our subjects, whether in corporate headshots, portfolios, portraits, or editorial shots. Experience the blend of professionalism and artistic flair that makes PK Photography the top choice in Mumbai.
+      </p>
+      <p className="mb-8 text-xl text-neutral-600 md:text-2xl"> Experience the blend of professionalism and artistic flair that makes PK Photography the top choice in Mumbai.
+      </p>
+      <button className="w-full rounded bg-neutral-900 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
+        Learn more <FiArrowUpRight className="inline" />
+      </button>
+    </div>
+  </div>
+);
+const ExampleContent2 = () => (
+  <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
+    <h2 className="col-span-1 text-3xl font-bold md:col-span-4">
+      Vision
+    </h2>
+    <div className="col-span-1 md:col-span-8">
+      <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
+      At PK Photography, Mumbai's premier studio, we believe every photograph tells a unique story. Inspired by the beauty of light and color, we use techniques from black & white processing, vintage photography, and creative perspectives to craft our images. Capturing the true personality of our subjects is our top priority. Our style blends photojournalism with fine-art photography, enhanced by fashion and creative lighting.
+      </p>
+      <p className="mb-8 text-xl text-neutral-600 md:text-2xl"> Experience the distinctive artistry of PK Photography and see why we're Mumbai's top choice for exceptional photography & videography. 
       </p>
       <button className="w-full rounded bg-neutral-900 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
         Learn more <FiArrowUpRight className="inline" />

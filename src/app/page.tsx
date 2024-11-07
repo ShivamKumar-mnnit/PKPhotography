@@ -13,7 +13,7 @@ import Service from "@/components/services/Service";
 // import { DragCards } from "@/components/Drag/Drag";
 import { TextParallaxContentExample } from "@/components/WeAlsoDo/TextParallaxContent";
 import Featured from "@/components/Featured/Featured";
-import {Footer} from "@/sections/Footer";
+
 
 
 
@@ -32,7 +32,7 @@ export default function Home() {
   return <>
   {showPreloader ? <Preloader/> : 
     <>
-  <Header1/>
+  {/* <Header1/> */}
   <Header/>
   <Hero/>
   <LogoTicker/>
@@ -43,7 +43,7 @@ export default function Home() {
   
   {/* <Testimonials/> */}
   <CallToAction/>
-  <Footer/>
+  
   </>
 }
   
