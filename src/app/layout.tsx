@@ -3,6 +3,7 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 import Image from "next/image";
+import {Footer} from "@/sections/Footer";
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
        
         
         {children}
+        <Footer/>
         <h2></h2>
         <h3></h3>
         <h4></h4>
