@@ -12,7 +12,6 @@ const Preloader = () => {
   const headingRef = React.useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Ensure all refs are defined before using them
     if (!percentRef.current || !barRef.current || !innerRef.current || !textRef.current || !headingRef.current || !ref.current) {
       return;
     }
@@ -42,27 +41,23 @@ const Preloader = () => {
       )
       .to(textRef.current, {
         opacity: 1,
-        boxShadow: "12px 20px rgba(0, 255, 255, 0.23)",
-        skewY: 5,
-        y: "10%",
+        y: "10%",  // Removed skewY and boxShadow effects
         stagger: {
           amount: 0.4,
         },
       });
 
     const interval = setInterval(() => {
-      // Safe access of percentRef.current
       if (percentRef.current) {
         const currentPercent = percentRef.current.innerHTML;
         if (currentPercent === "100%") {
           clearInterval(interval);
         } else {
           const newPercent = parseInt(currentPercent) + 1 + "%";
-          percentRef.current.innerHTML = newPercent; // Update innerHTML
+          percentRef.current.innerHTML = newPercent;
           
-          // Add null check for ref.current
           if (ref.current) {
-            ref.current.style.width = newPercent; // Set width based on percent
+            ref.current.style.width = newPercent;
           }
         }
       }
@@ -84,7 +79,7 @@ const Preloader = () => {
         </div>
       </div>
       <div ref={headingRef} className={styles.heading}>
-        <h1 ref={textRef}>PKPhotography</h1>
+        <h1 ref={textRef}  >PKPhotography</h1>
       </div>
     </div>
   );

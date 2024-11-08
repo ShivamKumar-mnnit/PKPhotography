@@ -1,34 +1,28 @@
-'use client'
-import styles from './style.module.scss'
-import { useEffect, useState } from 'react';
-import  Nav  from './nav/Nav';
-
+'use client';
+import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { usePathname } from 'next/navigation';
+import Nav from './nav/Nav';
+import styles from './style.module.scss';
 
 export default function Header() {
-
   const [isActive, setIsActive] = useState(false);
-  const pathname = usePathname();
-
-  useEffect( () => {
-    if(isActive) setIsActive(false)
-  }, [pathname])
 
   return (
     <>
-    <div className={styles.main}>
-
       <div className={styles.header}>
-        <div onClick={() => {setIsActive(!isActive)}} className={styles.button}>
-          <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
+        <div onClick={() => setIsActive(!isActive)} className={styles.button}>
+          <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}>
+            <div className={`${styles.dash} ${styles.top}`}></div>
+            <div className={`${styles.dash} ${styles.middle}`}></div>
+            <div className={`${styles.dash} ${styles.bottom}`}></div>
+          </div>
         </div>
       </div>
 
-    </div>
-    <AnimatePresence mode="wait">
-      {isActive && <Nav />}
-    </AnimatePresence>
+      {/* Only show Nav when menu is active (on mobile) */}
+      <AnimatePresence mode="wait">
+        {isActive && <Nav />}
+      </AnimatePresence>
     </>
-  )
+  );
 }
