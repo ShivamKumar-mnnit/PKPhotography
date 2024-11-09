@@ -43,7 +43,7 @@ const Card: React.FC<{ card: CardProps }> = ({ card }) => {
   return (
     <div
       key={card.id}
-      className={`group relative h-[620px] md:w-[468px] md:h-[650px] sm:w-[404px] overflow-hidden bg-neutral-200 rounded-3xl ${card.isLightBackground ? 'text-black' : 'text-white'}`}  // Conditionally apply text color
+      className={`group relative h-[620px] md:w-[468px] md:h-[650px] sm:w-[404px] overflow-hidden bg-neutral-200 rounded-3xl ${card.isLightBackground ? 'text-black' : 'text-white'}`}
     >
       <div
         style={{
@@ -69,7 +69,7 @@ const Card: React.FC<{ card: CardProps }> = ({ card }) => {
           {card.subtitle}
         </p>
         <div className="mt-1 flex justify-center">
-          <Btn className={card.isLightBackground ? 'text-black' : 'text-white'} /> {/* Conditionally apply button text color */}
+          <Btn className={card.isLightBackground ? 'text-black' : 'text-white'} /> {/* Pass className */}
         </div>
       </div>
     </div>

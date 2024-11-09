@@ -1,10 +1,10 @@
+import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
 
-const Btn = ({ textColor }: { textColor: string }) => {
+const Btn = ({ className }: { className: string }) => {  // Accept className prop here
   return (
     <div className="min-h-[200px] p-4">
-      <EncryptButton textColor={textColor} />
+      <EncryptButton className={className} />
     </div>
   );
 };
@@ -15,7 +15,7 @@ const SHUFFLE_TIME = 50;
 
 const CHARS = "!@#$%^&*():{};|,.<>/?";
 
-const EncryptButton = ({ textColor }: { textColor: string }) => {
+const EncryptButton = ({ className }: { className: string }) => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [text, setText] = useState(TARGET_TEXT);
 
@@ -57,10 +57,10 @@ const EncryptButton = ({ textColor }: { textColor: string }) => {
       whileTap={{ scale: 0.975 }}
       onMouseEnter={scramble}
       onMouseLeave={stopScramble}
-      className={`group relative overflow-hidden border-[1px] border-blue-800 px-4 py-2 font-mono font-medium uppercase transition-colors hover:text-blue-800 ${textColor}`}
+      className={`group relative overflow-hidden border-[1px] border-blue-800 px-4 py-2 font-mono font-medium uppercase text-neutral-300 transition-colors hover:text-blue-800 ${className}`}
     >
       <div className="relative z-10 flex items-center gap-2">
-        <span>{text}</span>
+        <span className={className}>{text}</span> {/* Apply className to text */}
       </div>
       <motion.span
         initial={{ y: "100%" }}
