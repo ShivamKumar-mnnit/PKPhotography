@@ -39,7 +39,7 @@ export default function Home() {
   {/* <Header1/> */}
   <Header/>
   <Hero/>
-  {/* <ImageBreak/> */}
+  <ImageBreak/>
   {/* <LogoTicker/> */}
   <Service/>
   {/* <ProductShowcase/> */}
