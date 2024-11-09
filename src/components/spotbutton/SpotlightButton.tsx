@@ -3,38 +3,39 @@ import { useEffect, useRef } from "react";
 
 const ButtonWrapper = () => {
   return (
-    <div className="flex items-center  px-4 py-5">
+    <div className="flex items-center px-4 py-5">
       <SpotlightButton />
     </div>
   );
 };
 
 const SpotlightButton = () => {
-  const btnRef = useRef(null);
-  const spanRef = useRef(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const spanRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      const { width } = e.target.getBoundingClientRect();
+    const handleMouseMove = (e: MouseEvent) => {
+      const target = e.target as HTMLButtonElement;
+      const { width } = target.getBoundingClientRect();
       const offset = e.offsetX;
       const left = `${(offset / width) * 100}%`;
 
-      spanRef.current.animate({ left }, { duration: 250, fill: "forwards" });
+      spanRef.current?.animate({ left }, { duration: 250, fill: "forwards" });
     };
 
     const handleMouseLeave = () => {
-      spanRef.current.animate(
+      spanRef.current?.animate(
         { left: "50%" },
         { duration: 100, fill: "forwards" }
       );
     };
 
-    btnRef.current.addEventListener("mousemove", handleMouseMove);
-    btnRef.current.addEventListener("mouseleave", handleMouseLeave);
+    btnRef.current?.addEventListener("mousemove", handleMouseMove);
+    btnRef.current?.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      btnRef.current.removeEventListener("mousemove", handleMouseMove);
-      btnRef.current.removeEventListener("mouseleave", handleMouseLeave);
+      btnRef.current?.removeEventListener("mousemove", handleMouseMove);
+      btnRef.current?.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
@@ -45,7 +46,7 @@ const SpotlightButton = () => {
       className="relative w-full max-w-xs overflow-hidden rounded-lg bg-slate-950 px-4 py-3 text-lg font-medium text-white"
     >
       <span className="pointer-events-none relative z-10 mix-blend-difference">
-      Discover our expertise ➔
+        Discover our expertise ➔
       </span>
       <span
         ref={spanRef}
