@@ -15,25 +15,27 @@ import MenuIcon from '@/assets/menuicon1.png';
 
 export const Hero = () => {
   return (
-    <section className="relative h-screen bg-[#a2a2a2] overflow-hidden">
-      {/* Video container */}
-      <div className="relative w-full h-full flex justify-center items-center">
-        {/* Full-height video */}
-        <video
-          src="/gif.mp4"
-          autoPlay
-          loop
-          muted
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+    <section className="relative h-screen bg-[#eae8e4] overflow-hidden">
+      {/* Video container in a circle above text */}
+      <div className="relative w-full h-full flex flex-col justify-center items-center space-y-10">
+        {/* Circular Video Container */}
+        <div className="relative z-10 w-[400px] h-[400px] rounded-full overflow-hidden border-4 border-white shadow-lg">
+          <video
+            src="/gif.mp4"
+            autoPlay
+            loop
+            muted
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-        {/* Logo positioned on top of the video */}
-        <div className="absolute top-5 left-5 z-10">
+        {/* Logo positioned on top-left of the section */}
+        <div className="absolute top-5 left-5 z-20">
           <Image src={Logo} alt="Saas Logo" height={120} width={120} />
         </div>
 
-        {/* Text content at the bottom of the video */}
-        <div className="absolute bottom-0 w-full text-center px-10 pb-10 text-white">
+        {/* Text content under the circular video */}
+        <div className="w-full text-center px-10 pb-10 text-white">
           <div className="md:w-[700px] mx-auto">
             <h1 className="text-[15px] md:text-[30px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
               We are a creative agency <br /> {`{we do}`}
