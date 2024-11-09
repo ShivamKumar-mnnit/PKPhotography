@@ -20,16 +20,22 @@ export const Hero = () => {
           />
         </div>
 
-        {/* Logo positioned on top-left with spacing for smaller screens */}
-        <div className="absolute top-5 left-5 md:top-8 md:left-8">
-          <Image src={Logo} alt="Saas Logo" height={80} width={80} className="md:h-[120px] md:w-[120px]" />
+        {/* Logo positioned on top-left with fixed aspect ratio */}
+        <div className="absolute top-0 left-5 md:top-0 md:left-8">
+          <Image 
+            src={Logo} 
+            alt="Saas Logo" 
+            width={120} // Set width to control aspect ratio
+            height={120} // Set height to control aspect ratio
+            className="w-[80px] h-[80px] md:w-[120px] md:h-[120px] object-contain" 
+          />
         </div>
 
         {/* Text content under the circular video */}
         <div className="w-full text-center px-4 md:px-10 pb-10 text-white">
           <div className="md:w-[700px] mx-auto">
-            <h1 className="text-[14px] md:text-[30px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
-              We are a creative agency <br /> {`{we do}`}
+            <h1 className="text-[10px] md:text-[14px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
+              We are a creative agency {`{we do}`}
               <Rotating />
             </h1>
             <Drop />
