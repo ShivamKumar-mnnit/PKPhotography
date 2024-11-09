@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-const Btn = () => {
+const Btn = ({ textColor }: { textColor: string }) => {
   return (
     <div className="min-h-[200px] p-4">
-      <EncryptButton />
+      <EncryptButton textColor={textColor} />
     </div>
   );
 };
@@ -15,8 +15,7 @@ const SHUFFLE_TIME = 50;
 
 const CHARS = "!@#$%^&*():{};|,.<>/?";
 
-const EncryptButton = () => {
-  // Update the type of intervalRef to handle the return type of setInterval
+const EncryptButton = ({ textColor }: { textColor: string }) => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [text, setText] = useState(TARGET_TEXT);
 
@@ -58,7 +57,7 @@ const EncryptButton = () => {
       whileTap={{ scale: 0.975 }}
       onMouseEnter={scramble}
       onMouseLeave={stopScramble}
-      className="group relative overflow-hidden  border-[1px] border-blue-800 px-4 py-2 font-mono font-medium uppercase text-neutral-300 transition-colors hover:text-blue-800"
+      className={`group relative overflow-hidden border-[1px] border-blue-800 px-4 py-2 font-mono font-medium uppercase transition-colors hover:text-blue-800 ${textColor}`}
     >
       <div className="relative z-10 flex items-center gap-2">
         <span>{text}</span>
