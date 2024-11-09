@@ -5,7 +5,7 @@
     right: 0;
     width: 60px; /* Set width for mobile */
     height: 100vh;
-    background-color: rgb(41, 41, 41);
+    // background-color: rgb(41, 41, 41);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,8 +15,11 @@
 
     /* Large screen styles: Curved left side */
     @media (min-width: 769px) {
-        width: 80px; /* Adjust for large screens */
+        width: 40px; /* Adjust for large screens */
         border-radius: 100% 0 0 100%; /* Increased curve for more curvature */
+        
+    background-image: url('../../assets/menuicon.png');
+    z-index: 30;
     }
 
     /* Mobile screen styles */

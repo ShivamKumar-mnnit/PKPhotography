@@ -50,3 +50,15 @@
   font-size: 60px;
   color: #000000;
 }
+
+@media (max-width: 768px) {
+  .heading h1 {
+    font-size: 40px; /* Adjust to a smaller size on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .heading h1 {
+    font-size: 30px; /* Further reduce for very small screens */
+  }
+}

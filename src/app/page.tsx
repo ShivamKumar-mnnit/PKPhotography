@@ -13,6 +13,8 @@ import Service from "@/components/services/Service";
 // import { DragCards } from "@/components/Drag/Drag";
 import { TextParallaxContentExample } from "@/components/WeAlsoDo/TextParallaxContent";
 import Featured from "@/components/Featured/Featured";
+import { ImageBreak } from "@/components/imagebreak1/ImageBreak";
+import { Do } from "@/components/WhatWeDo/Do";
 
 
 
@@ -37,10 +39,13 @@ export default function Home() {
   {/* <Header1/> */}
   <Header/>
   <Hero/>
+  {/* <ImageBreak/> */}
   {/* <LogoTicker/> */}
   <Service/>
   {/* <ProductShowcase/> */}
   <TextParallaxContentExample/>
+  <Do/>
+
   <Featured/>
   
   {/* <Testimonials/> */}
