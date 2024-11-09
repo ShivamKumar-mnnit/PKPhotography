@@ -30,7 +30,7 @@ export const Hero = () => {
         </div>
 
         {/* Logo positioned on top-left of the section */}
-        <div className="absolute top-5 left-5 z-20">
+        <div className="absolute top-5 left-5 ">
           <Image src={Logo} alt="Saas Logo" height={120} width={120} />
         </div>
 

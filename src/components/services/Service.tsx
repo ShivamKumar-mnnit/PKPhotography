@@ -83,7 +83,7 @@ const cards: CardProps[] = [
   {
     url: service10.src,
     title: "E-Commerce",
-    subtitle: "Boost your sales: crisp, high impact e-commerce photos",
+    subtitle: "Boost your sales: crisp, e-commerce photos",
     id: 10,
   },
   {
@@ -163,7 +163,7 @@ const HorizontalScrollCarousel: React.FC<{ cards: CardProps[] }> = ({ cards }) =
 const Service: React.FC = () => {
   return (
     <div className="bg-[#fff]">
-      <div className="flex h-48 items-center justify-center">
+      <div className="flex h-30 mt-5 items-center justify-center">
       <h2 className="section-title">Our Services</h2>
       </div>
       <HorizontalScrollCarousel cards={cards} />
