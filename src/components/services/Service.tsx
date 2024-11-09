@@ -148,7 +148,7 @@ const HorizontalScrollCarousel: React.FC<{ cards: CardProps[] }> = ({ cards }) =
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-75%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-[#fff]">
+    <section ref={targetRef} className="relative h-[300vh] ">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-4">
           {cards.map((card) => (
@@ -162,7 +162,7 @@ const HorizontalScrollCarousel: React.FC<{ cards: CardProps[] }> = ({ cards }) =
 
 const Service: React.FC = () => {
   return (
-    <div className="bg-[#fff]">
+    <div className="">
       <div className="flex h-30 mt-5 items-center justify-center">
       <h2 className="section-title">Our Services</h2>
       </div>

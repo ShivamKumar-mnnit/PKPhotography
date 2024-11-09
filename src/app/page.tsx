@@ -35,7 +35,7 @@ export default function Home() {
 
   return <>
   {showPreloader ? <Preloader/> : 
-    <>
+    < div className="bg-[#eae8e4]">
   {/* <Header1/> */}
   <Header/>
   <Hero/>
@@ -51,7 +51,7 @@ export default function Home() {
   {/* <Testimonials/> */}
   <CallToAction/>
 
-  </>
+  </div>
 }
   
   </>;
