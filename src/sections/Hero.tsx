@@ -11,7 +11,7 @@ import { DragCards } from "@/components/Drag/Drag";
 import BubbleText from '@/components/BubbleText/BubbleText';
 import Rotating from "@/components/RotatingText/Rotating";
 import { Drop } from "@/components/Drop/Drop";
-import MenuIcon from '@/assets/menuicon.png';
+import MenuIcon from '@/assets/menuicon1.png';
 
 export const Hero = () => {
   return (
@@ -51,7 +51,7 @@ export const Hero = () => {
       </div>
 
       {/* Menu Icon positioned at center-right with 80% height */}
-      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 h-[80%] flex items-center justify-center">
+      <div className="absolute right-0 top-[60%] transform -translate-y-1/2 h-[80%] flex items-center justify-center">
         <Image src={MenuIcon} alt="Menu Icon" height={800} width={800} />
       </div>
     </section>
