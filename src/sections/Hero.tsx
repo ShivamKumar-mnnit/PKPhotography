@@ -33,7 +33,7 @@ export const Hero = () => {
 
         {/* Text content under the circular video */}
         <div className="w-full text-center px-4 md:px-10 pb-10 text-white">
-          <div className="md:w-[700px] mx-auto">
+          <div className="md:w-[800px] mx-auto">
             <h1 className="text-[10px] md:text-[14px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
               We are a creative agency {`{we do}`}
               <Rotating />

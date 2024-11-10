@@ -1,48 +1,122 @@
+.inner-headings {
+  border: 0px solid #ddd;
+  height: 50px;
+  line-height: 50px;
+  font-size: 70px;
+  font-family: ClarendonBTWXX-Light;
+  font-weight: 300;
+  text-transform: uppercase;
+  overflow: hidden;
+  margin-top: 10px;
+}
 
-  
+.inner-headings span {
+  position: relative;
+  font-size: inherit;
+  color: #000000;
+  animation: animation-large 5s ease infinite;
+}
+
+/* Animation for large screens */
+@keyframes animation-large {
+  0%, 100% {
+    top: 0;
+  }
+  20% {
+    top: 0;
+  }
+  25% {
+    top: -50px;
+  }
+  45% {
+    top: -50px;
+  }
+  50% {
+    top: -100px;
+  }
+  70% {
+    top: -100px;
+  }
+  75% {
+    top: -150px;
+  }
+  95% {
+    top: -150px;
+  }
+}
+
+/* Media query for medium screens */
+@media (max-width: 1024px) {
   .inner-headings {
-    border: 0px solid #ddd;
-    height: 50px;
-    line-height: 50px;
-    font-size: 70px;
-    font-family: ClarendonBTWXX-Light;
-    font-weight: 300;
-    text-transform: uppercase;
-    overflow: hidden;
-    margin-top: 10px;
+    font-size: 50px;
+    height: 40px;
+    line-height: 40px;
   }
-  
   .inner-headings span {
-    position: relative;
-    font-size: 70px;
-    color: #000000;
-    animation: animation 5s ease infinite;
+    animation: animation-medium 5s ease infinite;
   }
-  
-  @keyframes animation {
-    0%,
-    100% {
+  @keyframes animation-medium {
+    0%, 100% {
       top: 0;
     }
     20% {
       top: 0;
     }
     25% {
-      top: -50px;
+      top: -40px;
     }
     45% {
-      top: -50px;
+      top: -40px;
     }
     50% {
-      top: -100px;
+      top: -80px;
     }
     70% {
-      top: -100px;
+      top: -80px;
     }
     75% {
-      top: -150px;
+      top: -120px;
     }
     95% {
-      top: -150px;
+      top: -120px;
     }
   }
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .inner-headings {
+    font-size: 35px;
+    height: 30px;
+    line-height: 30px;
+  }
+  .inner-headings span {
+    animation: animation-small 5s ease infinite;
+  }
+  @keyframes animation-small {
+    0%, 100% {
+      top: 0;
+    }
+    20% {
+      top: 0;
+    }
+    25% {
+      top: -30px;
+    }
+    45% {
+      top: -30px;
+    }
+    50% {
+      top: -60px;
+    }
+    70% {
+      top: -60px;
+    }
+    75% {
+      top: -90px;
+    }
+    95% {
+      top: -90px;
+    }
+  }
+}
