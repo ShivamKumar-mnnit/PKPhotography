@@ -82,7 +82,7 @@ const HorizontalScrollCarousel: React.FC<{ cards: CardProps[] }> = ({ cards }) =
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-95%"]);
 
   return (
     <section ref={targetRef} className="relative h-[500vh] lg:ml-3 md:ml-3">

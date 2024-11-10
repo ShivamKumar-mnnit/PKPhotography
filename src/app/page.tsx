@@ -46,7 +46,7 @@ export default function Home() {
   <TextParallaxContentExample/>
   <Do/>
 
-  <Featured/>
+  {/* <Featured/> */}
   
   {/* <Testimonials/> */}
   <CallToAction/>
