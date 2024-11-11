@@ -19,7 +19,7 @@ const navItems = [
   },
   {
     title: "Blog",
-    href: "/blog",
+    href: "https://pkblog-1.onrender.com/",
   },
   {
     title: "Contact",
