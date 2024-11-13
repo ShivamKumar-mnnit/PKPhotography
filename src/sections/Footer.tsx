@@ -8,9 +8,9 @@ export const Footer = () => {
   const Year = new Date().getFullYear();
   return (
     <footer className="relative">
-            <div className="absolute top-0 left-0 w-[100%] overflow-hidden bg-black">
+            <div className="absolute top-0 left-0 w-[100%] overflow-hidden bg-[#eae8e4]">
               
-                <div className="grid lg:grid-cols-5 gap-5 sm:grid-cols-1 p-20 bg-black text-white">
+                <div className="grid lg:grid-cols-5 gap-5 sm:grid-cols-1 p-20 bg-[#eae8e4] text-black">
                     <div className="flex flex-col gap-5">
                         <h2 className="text-3xl text-blue-800 ">PK Photography</h2>
                         <p>Capturing Life’s Moments with Passion and Precision</p>
@@ -87,23 +87,23 @@ export const Footer = () => {
                         <p className="text-[16px] my-4">Email: prabhakar@photography.com</p>
                         <p className="text-[16px] my-4">Phone: +91 8888766739</p>
                         <div className="flex space-x-4">
-                            <a href="https://www.facebook.com/pkfashionphotography" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-500 transform hover:scale-150 transition-all duration-150 ease-in-out">
+                            <a href="https://www.facebook.com/pkfashionphotography" target="_blank" rel="noopener noreferrer" className="text-black hover:text-pink-500 transform hover:scale-150 transition-all duration-150 ease-in-out">
                                 <FaGithub />
                             </a>
-                            <a href="https://www.instagram.com/itspkphotography.in/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-500 transform hover:scale-150 transition-all duration-150 ease-in-out">
+                            <a href="https://www.instagram.com/itspkphotography.in/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-pink-500 transform hover:scale-150 transition-all duration-150 ease-in-out">
                                <FaInstagram />
                             </a>
-                            <a href="https://x.com/pkphotographym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-500 transform hover:scale-150 transition-all duration-150 ease-in-out">
+                            <a href="https://x.com/pkphotographym" target="_blank" rel="noopener noreferrer" className="text-black hover:text-pink-500 transform hover:scale-150 transition-all duration-150 ease-in-out">
                                 <FaTwitter />
                             </a>
-                            <a href="https://www.linkedin.com/company/pkphotography/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-500 transform hover:scale-150 transition-all duration-150 ease-in-out">
+                            <a href="https://www.linkedin.com/company/pkphotography/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" className="text-black hover:text-pink-500 transform hover:scale-150 transition-all duration-150 ease-in-out">
                             <FaLinkedinIn />
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <h6 className="text-center text-white">Copyright &copy; {Year} PKPhotography. All rights reserved.</h6>
+                <h6 className="text-center text-black">Copyright &copy; {Year} PKPhotography. All rights reserved.</h6>
             </div>
         </footer>
   );
