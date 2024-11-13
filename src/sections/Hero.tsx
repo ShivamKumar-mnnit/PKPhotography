@@ -11,13 +11,15 @@ export const Hero = () => {
         
         {/* Circular Video Container with responsive sizing */}
         <div className="relative z-10 w-[250px] h-[250px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-white shadow-lg">
-          <video
-            src="/gif.mp4"
-            autoPlay
-            loop
-            muted
-            className="w-full h-full object-cover"
-          />
+        <video
+  src="/gif.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="w-full h-full object-cover"
+/>
+
         </div>
 
         {/* Logo positioned on top-left with fixed aspect ratio */}
