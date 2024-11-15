@@ -147,7 +147,7 @@ const thirdColumn = testimonials.slice(14, 21);
 
 export const Testimonials = () => {
   return (
-    <section className="pt-5 ml-12">
+    <section className="pt-5">
       <div className="container">
         <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
           <div className="flex flex-col gap-5 mt-10 w-full max-h-[400px] overflow-y-auto">

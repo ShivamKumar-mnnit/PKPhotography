@@ -4,7 +4,7 @@ export const ScrollText = () => {
    
 
     return (
-        <div className="ml-10">
+        <div className="">
            <Testimonials/>
         </div>
     );
