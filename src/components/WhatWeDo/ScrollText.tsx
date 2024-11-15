@@ -1,11 +1,11 @@
 
-
+import { Testimonials } from "@/sections/Testimonials";
 export const ScrollText = () => {
    
 
     return (
-        <div>
-           
+        <div className="ml-10">
+           <Testimonials/>
         </div>
     );
 };

@@ -15,15 +15,15 @@ const navItems = [
   },
   {
     title: "Gallery",
-    href: "/gallery",
+    href: "https://pkphotography.in/gallery/",
   },
   {
     title: "Blog",
-    href: "https://pkblog-1.onrender.com/",
+    href: "https://pkphotography.in/blogs/",
   },
   {
     title: "Contact",
-    href: "/contact",
+    href: "https://pkphotography.in/contact/",
   },
 ]
 
