@@ -14,16 +14,16 @@ const navItems = [
     href: "/",
   },
   {
-    title: "Gallery",
-    href: "https://pkphotography.in/gallery/",
+    title: "Client",
+    href: "/client",
   },
   {
     title: "Blog",
     href: "https://pkphotography.in/blogs/",
   },
   {
-    title: "Contact",
-    href: "https://pkphotography.in/contact/",
+    title: "Admin",
+    href: "/Admin",
   },
 ]
 
