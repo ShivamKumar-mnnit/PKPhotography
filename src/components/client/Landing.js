@@ -55,11 +55,11 @@ export default function Home() {
           PK PHOTOGRAPHY
         </h1>
 
-        <p className="mt-6 text-base text-gray-700 md:text-lg">
-          Welcome to the client portal. Here is where you can view, download, and share your photos.
-          OH! You can also order prints if you'd like :). Please contact me for your password
-          or any other assistance needed!
-        </p>
+        <p>
+  Welcome to the client portal. Here is where you can view, download, and share your photos.
+  OH! You can also order prints if you&apos;d like :). Please contact me for your password
+  or any other assistance needed!
+</p>
 
         <div className="mt-10 space-y-4 text-sm text-gray-500 md:text-base">
           <div className="flex items-center justify-center space-x-2">
