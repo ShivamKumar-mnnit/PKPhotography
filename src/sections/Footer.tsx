@@ -3,13 +3,12 @@ import logo from '@/assets/logo.webp'
 import Image from 'next/image';
 import { FaGithub, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import Link from 'next/link';
-import Btn from '@/components/EncrptButton/Btn'
 
 export const Footer = () => {
   const Year = new Date().getFullYear();
   return (
-    <footer className="relative font-custom text-footer">
-            <div className="absolute top-0 left-0 w-[100%] overflow-hidden bg-[#eae8e4] text-center">
+    <footer className="relative">
+            <div className="absolute top-0 left-0 w-[100%] overflow-hidden bg-[#eae8e4]">
               
                 <div className="grid lg:grid-cols-5 gap-5 sm:grid-cols-1 p-20 bg-[#eae8e4] text-black">
                     <div className="flex flex-col gap-5">
@@ -85,10 +84,8 @@ export const Footer = () => {
 
                     <div className="mb-4 md:mb-0">
                         <h2 className="text-[22px] font-semibold text-blue-800 py-2 uppercase text-center">Contact</h2>
-                        <p className="text-footer my-4">Email:</p>
-                        <p className="text-xl my-4">prabhakar@photography.com</p>
-                        <p className="text-footer my-4">Phone: </p>
-                        <p className="text-xl my-4">+91 8888766739</p>
+                        <p className="text-[16px] my-4">Email: prabhakar@photography.com</p>
+                        <p className="text-[16px] my-4">Phone: +91 8888766739</p>
                         <div className="flex space-x-4">
                             <a href="https://www.facebook.com/pkfashionphotography" target="_blank" rel="noopener noreferrer" className="text-black hover:text-pink-500 transform hover:scale-150 transition-all duration-150 ease-in-out">
                                 <FaGithub />
