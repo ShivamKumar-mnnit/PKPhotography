@@ -19,7 +19,7 @@ const navItems = [
   },
   {
     title: "Blog",
-    href: "https://pkphotography.in/blogs/",
+    href: "https://blogs.pkphotography.io/",
   },
   {
     title: "Admin",
