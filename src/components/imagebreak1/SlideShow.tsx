@@ -49,8 +49,9 @@ const Slideshow = () => {
               Hello, PK
             </h1>
             <p className="absolute md:top-80 top-40 inset-x-1/4 text-center z-10 md:text-2xl text-xl font-bold text-white">
-              "Everything you can imagine is real."
-            </p>
+  &quot;Everything you can imagine is real.&quot;
+</p>
+
           </div>
         ))}
       </Zoom>
