@@ -7,8 +7,15 @@ const Rotating = () => {
           <span>
             Photography <br />
             Videography <br />
-            Headshots <br />
-            Content <br />
+Events <br/>
+Headshots <br/>
+Weddings<br/>
+Live streaming<br/> 
+Insta Reels <br/>
+Ads <br/>
+Design<br/>
+Talent<br/>
+Influencers<br/>
           </span>
         </div>
      

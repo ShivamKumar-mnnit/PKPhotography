@@ -40,7 +40,9 @@ export const Hero = () => {
               We are a creative agency {`{we do}`}
               <Rotating />
             </h1>
+            <div className="mt-3">
             <Drop />
+            </div>
           </div>
         </div>
       </div>
