@@ -10,7 +10,7 @@ const UserCards = () => {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const { data } = await axios.get("http://localhost:4000/api/cards");
+        const { data } = await axios.get("https://client-ra9o.onrender.com/api/cards");
         setCards(data);
         console.log(data);
       } catch (error) {
