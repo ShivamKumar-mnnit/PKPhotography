@@ -3,6 +3,7 @@ import Image from "next/image";
 import Logo from "@/assets/logo.webp";
 import Rotating from "@/components/RotatingText/Rotating";
 import { Drop } from "@/components/Drop/Drop";
+import Dropping from "@/components/droppingText/Dropping";
 
 export const Hero = () => {
   return (
@@ -38,7 +39,8 @@ export const Hero = () => {
           <div className="md:w-[800px] mx-auto">
             <h1 className="text-[10px] md:text-[14px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
               We are a creative agency {`{we do}`}
-              <Rotating />
+              {/* <Rotating /> */}
+              <Dropping/>
             </h1>
             <div className="mt-3">
             <Drop />

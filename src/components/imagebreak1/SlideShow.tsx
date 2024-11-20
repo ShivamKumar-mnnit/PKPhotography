@@ -43,10 +43,10 @@ const Slideshow = () => {
           alt={`Slide ${index + 1}`}
         />
         <h1 className="absolute top-1/4 inset-x-1/4 text-center z-10 md:text-6xl text-4xl font-bold text-white">
-          Hello, PK
+         
         </h1>
         <p className="absolute top-1/2 inset-x-1/4 text-center z-10 md:text-2xl text-xl font-bold text-white">
-          &quot;Everything you can imagine is real.&quot;
+          
         </p>
       </div>
     ))}

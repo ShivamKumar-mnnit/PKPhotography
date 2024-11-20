@@ -40,7 +40,7 @@ export default function Home() {
   <Header/>
   <Hero/>
   <ImageBreak/>
-  {/* <LogoTicker/> */}
+  <LogoTicker/>
   <Service/>
   {/* <ProductShowcase/> */}
   <TextParallaxContentExample/>
