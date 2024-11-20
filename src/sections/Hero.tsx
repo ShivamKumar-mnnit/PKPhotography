@@ -29,7 +29,7 @@ export const Hero = () => {
             alt="Saas Logo" 
             width={120} // Set width to control aspect ratio
             height={120} // Set height to control aspect ratio
-            className="w-[80px] h-[80px] md:w-[120px] md:h-[120px] object-contain" 
+            className="w-[80px] h-[80px] md:w-[120px] md:h-[120px] object-contain fixed z-40" 
           />
         </div>
 
