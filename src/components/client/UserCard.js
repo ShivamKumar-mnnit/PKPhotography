@@ -1,5 +1,7 @@
 "use client"; // Ensure this is a client component
 import Link from "next/link";
+import Head from 'next/head';
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -29,7 +31,7 @@ const UserCards = () => {
 
   return (
     <>
-      <head>
+      <Head>
         <title>PK Photography</title>
         <meta
           name="description"
@@ -44,10 +46,10 @@ const UserCards = () => {
           content="Browse through the user cards showcasing beautiful moments captured by PK Photography."
         />
         <meta property="og:image" content="/default-image.png" />
-        <meta property="og:url" content="http://localhost:3000/user-cards" />
+        <meta property="og:url" content="https://www.pkphotography.io/user-cards" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="robots" content="index, follow" />
-      </head>
+      </Head>
 
       <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
         {cards.map((card) => (
@@ -56,7 +58,7 @@ const UserCards = () => {
             className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
           >
             <div className="relative h-48 w-full">
-              <img
+              <Image
                 src={card.imageUrl}
                 alt={`Image of ${card.name}`}
                 className="object-cover w-full h-full rounded-t-lg"
