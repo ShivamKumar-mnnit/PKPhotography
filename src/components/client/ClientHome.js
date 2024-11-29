@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
-import Cart from "./Cart.js";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { GoDownload } from "react-icons/go";
+import JSZip from "jszip";
+import { saveAs } from "file-saver";
 import {
   FaCartPlus,
   FaHeart,
@@ -41,6 +42,8 @@ const ClientHome = () => {
   const [columns, setColumns] = useState(4);
   const [showModal, setShowModal] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const [favorites, setFavorites] = useState([]);
+  const [showFavoritesModal, setShowFavoritesModal] = useState(false);
 
   const dropdownRef = useRef(null);
   const imageContainerRef = useRef(null);
@@ -96,7 +99,7 @@ const ClientHome = () => {
     if (folderId) {
       try {
         const response = await axios.get(
-          `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=AIzaSyBDDP0ztWvQAtYFkyF6USF8bU-8OHw1uAY`
+          `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=AIzaSyCZv3XS3cicdPsznsJG7QxF1O_nQWSGoSM`
         );
         const driveImages = response.data.files.map((file, index) => ({
           id: `${categoryName}-${index}`, // Unique ID based on category and index
@@ -195,12 +198,6 @@ const ClientHome = () => {
     setCurrentImage(null);
   };
 
-  const handleDownload = (imageUrl) => {
-    const link = document.createElement("a");
-    link.href = imageUrl;
-    link.download = "image.jpg";
-    link.click();
-  };
 
   const handleShare = (imageUrl) => {
     if (navigator.share) {
@@ -304,6 +301,132 @@ const ClientHome = () => {
     }
 
     window.open(shareUrl, "_blank");
+  };
+
+  const handleDownloadAll = async () => {
+    if (!images || images.length === 0) {
+      alert("No images available to download.");
+      return;
+    }
+
+    const zip = new JSZip();
+    const folderName = activeCategory || "images"; // Use the current active category
+    const zipFolder = zip.folder(folderName);
+
+    try {
+      const fetchPromises = images.map(async (image, index) => {
+        try {
+          console.log(`Fetching image ${index + 1}: ${image.highRes}`);
+
+          // Use fetch to get the image blob
+          const response = await fetch(image.highRes);
+          if (!response.ok) {
+            console.error(`Failed to fetch image: ${image.highRes}`);
+            return null;
+          }
+
+          const blob = await response.blob();
+          const arrayBuffer = await blob.arrayBuffer(); // Convert blob to ArrayBuffer
+
+          const fileExtension = image.highRes.split(".").pop() || "jpg";
+          const fileName = `${folderName}_${index + 1}.${fileExtension}`;
+
+          // Add the image to the ZIP folder using the ArrayBuffer
+          zipFolder.file(fileName, arrayBuffer);
+          console.log(`Added ${fileName} to ZIP.`);
+        } catch (error) {
+          console.error(`Error fetching image: ${image.highRes}`, error);
+          return null;
+        }
+      });
+
+      // Wait for all fetches to complete
+      await Promise.all(fetchPromises);
+
+      // Generate the ZIP file
+      const content = await zip.generateAsync({ type: "blob" });
+
+      // Trigger the download
+      saveAs(content, `${folderName}.zip`);
+      console.log("ZIP file generated and downloaded.");
+    } catch (error) {
+      console.error("Error creating ZIP file:", error);
+      alert("An error occurred while downloading the images.");
+    }
+  };
+
+  useEffect(() => {
+    // Load favorites from localStorage on page load
+    const storedFavorites = localStorage.getItem("favorites");
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
+    }
+  }, []);
+
+  const toggleFavorite = (image) => {
+    setFavorites((prevFavorites) => {
+      const isFavorited = prevFavorites.find((fav) => fav.id === image.id);
+      let updatedFavorites;
+
+      if (isFavorited) {
+        // Remove the image from favorites
+        updatedFavorites = prevFavorites.filter((fav) => fav.id !== image.id);
+      } else {
+        // Add the image to favorites
+        updatedFavorites = [...prevFavorites, image];
+      }
+
+      // Save to localStorage
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+
+      return updatedFavorites;
+    });
+  };
+
+  const toggleFavoritesModal = () => {
+    setShowFavoritesModal((prev) => !prev);
+  };
+
+  const handleDownloadFavorites = async () => {
+    if (!favorites || favorites.length === 0) {
+      alert("No favorite images available to download.");
+      return;
+    }
+
+    console.log("Starting download process...");
+    const zip = new JSZip();
+    const zipFolder = zip.folder("favorite-images");
+
+    const fetchPromises = favorites.map(async (image, index) => {
+      console.log(`Fetching image ${index + 1}: ${image.highRes}`);
+      try {
+        const response = await fetch(image.highRes);
+        if (!response.ok) throw new Error(`HTTP status ${response.status}`);
+
+        const blob = await response.blob();
+        const arrayBuffer = await blob.arrayBuffer();
+        const fileExtension = image.highRes.split(".").pop() || "jpg";
+        const fileName = `favorite_${index + 1}.${fileExtension}`;
+
+        zipFolder.file(fileName, arrayBuffer);
+        console.log(`Added file to ZIP: ${fileName}`);
+      } catch (error) {
+        console.error(`Failed to fetch image: ${image.highRes}`, error);
+      }
+    });
+
+    await Promise.all(fetchPromises);
+
+    if (!zipFolder || Object.keys(zipFolder.files).length === 0) {
+      alert("No images added to ZIP.");
+      console.log("ZIP creation failed: No images were fetched.");
+      return;
+    }
+
+    console.log("Generating ZIP...");
+    const content = await zip.generateAsync({ type: "blob" });
+    saveAs(content, "favorite-images.zip");
+    console.log("Download complete!");
   };
 
   return (
@@ -414,6 +537,21 @@ const ClientHome = () => {
         <ul className="flex space-x-6 text-sm font-semibold text-gray-600 items-center">
           <li
             className="flex items-center space-x-1 hover:text-black cursor-pointer"
+            onClick={toggleFavoritesModal}
+          >
+            <FaHeart />
+            <span>Favourite ({favorites.length})</span>
+          </li>
+
+          <li
+            className="flex items-center space-x-1 hover:text-black cursor-pointer"
+            onClick={handleDownloadAll}
+          >
+            <GoDownload />
+            <span>Download All</span>
+          </li>
+          <li
+            className="flex items-center space-x-1 hover:text-black cursor-pointer"
             onClick={handleSlideshow}
           >
             <FaPlay />
@@ -427,6 +565,56 @@ const ClientHome = () => {
           </li>
         </ul>
       </nav>
+
+      {/* favourite model/page */}
+      {showFavoritesModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex justify-center items-center z-50">
+          <div className="bg-white rounded-lg p-6 shadow-2xl w-full max-w-lg max-h-screen overflow-hidden">
+            <h3 className="text-2xl font-semibold text-gray-700 mb-4 text-center">
+              Your Favorite Images
+            </h3>
+            {favorites.length === 0 ? (
+              <p className="text-gray-500 text-center">
+                You have not added any favorites yet.
+              </p>
+            ) : (
+              <>
+                <ul className="grid grid-cols-2 gap-6 overflow-y-auto max-h-80 p-2">
+                  {favorites.map((image) => (
+                    <li key={image.id} className="relative group">
+                      <Image
+                        src={image.highRes}
+                        alt="Favorite"
+                        width={150}
+                        height={100}
+                        className="rounded-lg shadow-md transform transition duration-300 hover:scale-105"
+                      />
+                      <button
+                        onClick={() => toggleFavorite(image)}
+                        className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      >
+                        ✕
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  className="mt-4 w-full py-2 bg-gray-400 text-white font-semibold rounded-lg hover:bg-green-600 shadow-md transition duration-300"
+                  onClick={handleDownloadFavorites}
+                >
+                  Download All Favorites
+                </button>
+              </>
+            )}
+            <button
+              className="mt-4 w-full py-2 bg-gray-400 text-white font-semibold rounded-lg hover:bg-green-600 shadow-md transition duration-300"
+              onClick={toggleFavoritesModal}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* here we are fetching the drive images and Display Images */}
       <ul
@@ -454,9 +642,24 @@ const ClientHome = () => {
               layout="intrinsic"
               width={800}
               height={500}
+              alt="Image"
               style={{ display: "block", width: "100%" }}
             />
             <div className="absolute inset-0 flex justify-end items-end gap-2 p-2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+              <button
+                className={`p-2 ${
+                  favorites.find((fav) => fav.id === image.id)
+                    ? "text-red-600"
+                    : "text-white"
+                } hover:text-red-600`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleFavorite(image);
+                }}
+              >
+                <FaHeart className="w-5 h-5" />
+              </button>
+
               <button
                 className="text-white p-2 hover:text-gray-600"
                 onClick={(e) => {
@@ -466,6 +669,7 @@ const ClientHome = () => {
               >
                 <GoDownload className="w-5 h-5" />
               </button>
+
               <button
                 className="text-white p-2 hover:text-gray-600"
                 onClick={(e) => {
@@ -626,7 +830,9 @@ const ClientHome = () => {
               </button>
               <div className="flex items-center gap-4">
                 <button
-                  className={`group flex items-center gap-1 text-[#88745d] hover:text-[#3c2e21] focus:outline-none text-sm ${clicked ? "z-0" : "z-50"}`}
+                  className={`group flex items-center gap-1 text-[#88745d] hover:text-[#3c2e21] focus:outline-none text-sm ${
+                    clicked ? "z-0" : "z-50"
+                  }`}
                   onClick={() => handleOpenDownloadModal(currentImage)}
                 >
                   <FaDownload className="group-hover:text-[#3c2e21]" />
