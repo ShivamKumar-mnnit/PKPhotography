@@ -57,7 +57,7 @@ const ClientHome = () => {
     const fetchSelectedCard = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/api/client/cards`
+          `https://client-ra9o.onrender.com/api/client/cards`
         );
         const selectedCard = response.data.find((card) => card._id === lastId);
         setSelectedCard(selectedCard);
@@ -99,7 +99,7 @@ const ClientHome = () => {
     if (folderId) {
       try {
         const response = await axios.get(
-          `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=AIzaSyBDDP0ztWvQAtYFkyF6USF8bU-8OHw1uAY`
+          `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=AIzaSyCZv3XS3cicdPsznsJG7QxF1O_nQWSGoSM`
         );
         const driveImages = response.data.files.map((file, index) => ({
           id: `${categoryName}-${index}`, // Unique ID based on category and index
@@ -198,12 +198,6 @@ const ClientHome = () => {
     setCurrentImage(null);
   };
 
-  const handleDownload = (imageUrl) => {
-    const link = document.createElement("a");
-    link.href = imageUrl;
-    link.download = "image.jpg";
-    link.click();
-  };
 
   const handleShare = (imageUrl) => {
     if (navigator.share) {

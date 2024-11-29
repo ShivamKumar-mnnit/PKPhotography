@@ -72,7 +72,7 @@ export default function Login() {
   };
 
   return (
-    <GoogleOAuthProvider clientId="475816624295-iqvumfal9cn66aoch50na62lp2tjsmfp.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="647699521634-cete4gujluj1cpcbhq4nkq4ebju8854u.apps.googleusercontent.com">
       {/* Metadata for SEO */}
       <Head>
         <title>Login - Secure OTP & Google Authentication</title>
