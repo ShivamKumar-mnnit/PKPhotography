@@ -1,7 +1,7 @@
 import React from "react";
 import BubbleText from "@/components/BubbleText/BubbleText";
 // import Carousel from "./Carousel";
-import Slideshow from "./Slideshow";
+import Slideshow from "./SlideShow";
 
 export const ImageBreak = () => {
   return (
