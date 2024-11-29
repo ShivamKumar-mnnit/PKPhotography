@@ -22,6 +22,7 @@ import {
   FaCopy,
   FaArrowRight,
   FaShare,
+  FaCartArrowDown,
   FaTimes,
 } from "react-icons/fa";
 
@@ -559,7 +560,7 @@ const ClientHome = () => {
           </li>
           <li className="flex items-center space-x-1 hover:text-black cursor-pointer">
             <Link href="/Cart" className="flex items-center space-x-1">
-              <ShoppingCartIcon />
+              <FaCartArrowDown />
               <span>Cart ({cartItems.length})</span>
             </Link>
           </li>
