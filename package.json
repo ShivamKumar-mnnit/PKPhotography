@@ -11,8 +11,6 @@
   "dependencies": {
     "@fontsource/montserrat": "^5.1.0",
     "@heroicons/react": "^2.2.0",
-    "@mui/icons-material": "^6.1.9",
-    "@mui/material": "^6.1.9",
     "@react-oauth/google": "^0.12.1",
     "@studio-freight/lenis": "^1.0.42",
     "axios": "^1.7.7",
