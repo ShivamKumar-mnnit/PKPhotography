@@ -83,6 +83,7 @@ const ClientHome = () => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setDropdownVisible(false);
+        console.log(handleClickOutside);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
