@@ -2,7 +2,7 @@ import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import axios from "axios";
 import { GoDownload } from "react-icons/go";
 import JSZip from "jszip";
@@ -89,7 +89,7 @@ const ClientHome = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const fetchImagesFromDrive = async (driveLink, categoryName) => {
+  const fetchImagesFromDrive = useCallback(async (driveLink, categoryName) => {
     if (!driveLink) {
       console.error("No drive link provided.");
       return;
@@ -114,7 +114,7 @@ const ClientHome = () => {
     } else {
       console.error("Invalid drive link:", driveLink);
     }
-  };
+  });
 
   const extractFolderId = (driveLink) => {
     const match = driveLink.match(/[-\w]{25,}/);
