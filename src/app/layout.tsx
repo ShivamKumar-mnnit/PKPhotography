@@ -25,18 +25,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="relative">
-      <meta name="google-site-verification" content="xkkbCA30-55oudh-aQAwydfWkzUga0omPDIZ6lN9RB4" />
-      <body className={clsx(dmSans.className, "antialiased ")}>
-       
-        
+      <head>
+        <meta
+          name="google-site-verification"
+          content="xkkbCA30-55oudh-aQAwydfWkzUga0omPDIZ6lN9RB4"
+        />
+      </head>
+      <body className={clsx(dmSans.className, "antialiased")}>
         {children}
-        <Footer/>
-        <h2></h2>
-        <h3></h3>
-        <h4></h4>
-        <h5></h5>
-        <h6></h6>
-        
+        <Footer />
       </body>
     </html>
   );
