@@ -605,9 +605,9 @@ const handleDownloadFavorites = async () => {
               Your Favorite Images
             </h3>
             {favorites.length === 0 ? (
-              <p className="text-gray-500 text-center">
-                You haven't added any favorites yet.
-              </p>
+             <p className="text-gray-500 text-center">
+             You haven&apos;t added any favorites yet.
+           </p>
             ) : (
               <>
                 <ul className="grid grid-cols-2 gap-6 overflow-y-auto max-h-80 p-2">
