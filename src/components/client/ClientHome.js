@@ -4,7 +4,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { GoDownload } from "react-icons/go";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
@@ -199,7 +198,6 @@ const ClientHome = () => {
     setCurrentImage(null);
   };
 
-
   const handleShare = (imageUrl) => {
     if (navigator.share) {
       navigator
@@ -388,48 +386,79 @@ const ClientHome = () => {
     setShowFavoritesModal((prev) => !prev);
   };
 
-  const handleDownloadFavorites = async () => {
-    if (!favorites || favorites.length === 0) {
+  const extractFileIdFromUrl = (url) => {
+    const regex = /[?&]id=([^&]+)/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+};
+
+const handleDownloadFavorites = async () => {
+  if (!favorites || favorites.length === 0) {
       alert("No favorite images available to download.");
       return;
-    }
+  }
 
-    console.log("Starting download process...");
-    const zip = new JSZip();
-    const zipFolder = zip.folder("favorite-images");
+  const zip = new JSZip();
+  const failedImages = [];
 
-    const fetchPromises = favorites.map(async (image, index) => {
-      console.log(`Fetching image ${index + 1}: ${image.highRes}`);
-      try {
-        const response = await fetch(image.highRes);
-        if (!response.ok) throw new Error(`HTTP status ${response.status}`);
-
-        const blob = await response.blob();
-        const arrayBuffer = await blob.arrayBuffer();
-        const fileExtension = image.highRes.split(".").pop() || "jpg";
-        const fileName = `favorite_${index + 1}.${fileExtension}`;
-
-        zipFolder.file(fileName, arrayBuffer);
-        console.log(`Added file to ZIP: ${fileName}`);
-      } catch (error) {
-        console.error(`Failed to fetch image: ${image.highRes}`, error);
+  // Use fetchPromises to download all files
+  const fetchPromises = favorites.map(async (image, index) => {
+      const fileId = extractFileIdFromUrl(image.highRes);
+      if (!fileId) {
+          console.warn(`Failed to extract fileId from URL: ${image.highRes}`);
+          failedImages.push(image.highRes);
+          return;
       }
-    });
 
-    await Promise.all(fetchPromises);
+      const proxyUrl = `https://client-ra9o.onrender.com/api/download/${fileId}`;
+      console.log('Fetching from proxy URL:', proxyUrl);
 
-    if (!zipFolder || Object.keys(zipFolder.files).length === 0) {
-      alert("No images added to ZIP.");
-      console.log("ZIP creation failed: No images were fetched.");
+      try {
+          const response = await fetch(proxyUrl);
+          if (!response.ok) {
+              console.error(`Failed to fetch ${proxyUrl}:`, response.status);
+              failedImages.push(image.highRes);
+              return;
+          }
+
+          const blob = await response.blob();
+          const arrayBuffer = await blob.arrayBuffer();
+
+          // Ensure a valid file extension
+          const defaultExtension = "jpg";
+          const fileExtension = image.highRes.split('.').pop().match(/^(jpg|jpeg|png|gif)$/i)
+              ? image.highRes.split('.').pop()
+              : defaultExtension;
+
+          const fileName = `favorite_${index + 1}.${fileExtension}`;
+          zip.file(fileName, arrayBuffer); // Add file directly to the zip
+      } catch (error) {
+          console.error(`Error downloading file: ${image.highRes}`, error);
+          failedImages.push(image.highRes);
+      }
+  });
+
+  await Promise.all(fetchPromises);
+
+  // If no files were added, show an alert
+  if (Object.keys(zip.files).length === 0) {
+      alert("No images were successfully added to the ZIP file.");
       return;
-    }
+  }
 
-    console.log("Generating ZIP...");
-    const content = await zip.generateAsync({ type: "blob" });
-    saveAs(content, "favorite-images.zip");
-    console.log("Download complete!");
-  };
+  // Generate and download the ZIP file
+  const content = await zip.generateAsync({ type: "blob" });
+  saveAs(content, "favorite-images.zip");
 
+  // Log failed downloads
+  if (failedImages.length > 0) {
+      console.warn(`Failed to download ${failedImages.length} images.`, failedImages);
+      alert("Some images could not be downloaded. Check the console for details.");
+  }
+};
+
+
+  
   return (
     <>
       <Head>
@@ -576,7 +605,7 @@ const ClientHome = () => {
             </h3>
             {favorites.length === 0 ? (
               <p className="text-gray-500 text-center">
-                You have not added any favorites yet.
+                You haven't added any favorites yet.
               </p>
             ) : (
               <>
@@ -643,7 +672,6 @@ const ClientHome = () => {
               layout="intrinsic"
               width={800}
               height={500}
-              alt="Image"
               style={{ display: "block", width: "100%" }}
             />
             <div className="absolute inset-0 flex justify-end items-end gap-2 p-2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
