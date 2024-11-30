@@ -16,6 +16,7 @@ import Featured from "@/components/Featured/Featured";
 import { ImageBreak } from "@/components/imagebreak1/ImageBreak";
 import { Do } from "@/components/WhatWeDo/Do";
 
+import Project  from "@/sections/Project";
 
 
 
@@ -40,10 +41,11 @@ export default function Home() {
   <Header/>
   <Hero/>
   <ImageBreak/>
-  <LogoTicker/>
+  {/* <LogoTicker/> */}
   <Service/>
   {/* <ProductShowcase/> */}
   <TextParallaxContentExample/>
+  <Project/>
   <Do/>
 
   {/* <Featured/> */}
