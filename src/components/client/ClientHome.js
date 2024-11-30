@@ -308,50 +308,64 @@ const ClientHome = () => {
       alert("No images available to download.");
       return;
     }
-
+  
     const zip = new JSZip();
-    const folderName = activeCategory || "images"; // Use the current active category
-    const zipFolder = zip.folder(folderName);
-
-    try {
-      const fetchPromises = images.map(async (image, index) => {
-        try {
-          console.log(`Fetching image ${index + 1}: ${image.highRes}`);
-
-          // Use fetch to get the image blob
-          const response = await fetch(image.highRes);
-          if (!response.ok) {
-            console.error(`Failed to fetch image: ${image.highRes}`);
-            return null;
-          }
-
-          const blob = await response.blob();
-          const arrayBuffer = await blob.arrayBuffer(); // Convert blob to ArrayBuffer
-
-          const fileExtension = image.highRes.split(".").pop() || "jpg";
-          const fileName = `${folderName}_${index + 1}.${fileExtension}`;
-
-          // Add the image to the ZIP folder using the ArrayBuffer
-          zipFolder.file(fileName, arrayBuffer);
-          console.log(`Added ${fileName} to ZIP.`);
-        } catch (error) {
-          console.error(`Error fetching image: ${image.highRes}`, error);
-          return null;
+    const failedImages = [];
+  
+    // Process all images in the selected category
+    const fetchPromises = images.map(async (image, index) => {
+      const fileId = extractFileIdFromUrl(image.highRes);
+      if (!fileId) {
+        console.warn(`Failed to extract fileId from URL: ${image.highRes}`);
+        failedImages.push(image.highRes);
+        return;
+      }
+  
+      const proxyUrl = `https://client-ra9o.onrender.com/api/download/${fileId}`;
+      console.log('Fetching from proxy URL:', proxyUrl);
+  
+      try {
+        const response = await fetch(proxyUrl);
+        if (!response.ok) {
+          console.error(`Failed to fetch ${proxyUrl}:`, response.status);
+          failedImages.push(image.highRes);
+          return;
         }
-      });
-
-      // Wait for all fetches to complete
-      await Promise.all(fetchPromises);
-
-      // Generate the ZIP file
-      const content = await zip.generateAsync({ type: "blob" });
-
-      // Trigger the download
-      saveAs(content, `${folderName}.zip`);
-      console.log("ZIP file generated and downloaded.");
-    } catch (error) {
-      console.error("Error creating ZIP file:", error);
-      alert("An error occurred while downloading the images.");
+  
+        const blob = await response.blob();
+        const arrayBuffer = await blob.arrayBuffer();
+  
+        // Determine a valid file extension
+        const defaultExtension = "jpg";
+        const fileExtension = image.highRes.split('.').pop().match(/^(jpg|jpeg|png|gif)$/i)
+          ? image.highRes.split('.').pop()
+          : defaultExtension;
+  
+        const fileName = `${activeCategory || "category"}_${index + 1}.${fileExtension}`;
+        zip.file(fileName, arrayBuffer); // Add file directly to the zip
+      } catch (error) {
+        console.error(`Error downloading file: ${image.highRes}`, error);
+        failedImages.push(image.highRes);
+      }
+    });
+  
+    // Wait for all fetches to complete
+    await Promise.all(fetchPromises);
+  
+    // Check if any files were successfully added
+    if (Object.keys(zip.files).length === 0) {
+      alert("No images were successfully added to the ZIP file.");
+      return;
+    }
+  
+    // Generate and download the ZIP file
+    const content = await zip.generateAsync({ type: "blob" });
+    saveAs(content, `${activeCategory || "all-images"}.zip`);
+  
+    // Log and alert about failed downloads, if any
+    if (failedImages.length > 0) {
+      console.warn(`Failed to download ${failedImages.length} images.`, failedImages);
+      alert("Some images could not be downloaded. Check the console for details.");
     }
   };
 
