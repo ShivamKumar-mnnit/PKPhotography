@@ -61,7 +61,7 @@ const ClientHome = () => {
         );
         const selectedCard = response.data.find((card) => card._id === lastId);
         setSelectedCard(selectedCard);
-        console.log("Selected card:", selectedCard);
+        // console.log("Selected card:", selectedCard);
         setCategories(selectedCard.category || []);
 
         // Set the first category as the default active category
@@ -322,7 +322,7 @@ const ClientHome = () => {
       }
   
       const proxyUrl = `https://client-ra9o.onrender.com/api/download/${fileId}`;
-      console.log('Fetching from proxy URL:', proxyUrl);
+      // console.log('Fetching from proxy URL:', proxyUrl);
   
       try {
         const response = await fetch(proxyUrl);
@@ -426,7 +426,7 @@ const handleDownloadFavorites = async () => {
       }
 
       const proxyUrl = `https://client-ra9o.onrender.com/api/download/${fileId}`;
-      console.log('Fetching from proxy URL:', proxyUrl);
+      // console.log('Fetching from proxy URL:', proxyUrl);
 
       try {
           const response = await fetch(proxyUrl);
